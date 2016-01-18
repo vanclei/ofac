@@ -1,0 +1,33 @@
+{% extends "layout.html.twig" %}
+
+{% form_theme form 'theme.html.twig' %}
+
+{% block title %}{{ '%entity% creation'|trans({'%entity%': 'Ofac'}, 'admin') }} - {{ parent() }}{% endblock %}
+
+{% block body %}
+
+
+    {{ form_start(form, {action: path('ofac_create')}) }}
+    <div class="panel panel-default">
+        <div class="panel-heading clearfix">
+            {{ form_widget(form) }}
+
+        </div>
+    </div>
+    <p>
+        <button class="btn btn-primary" type="submit">{{ 'Create'|trans({}, 'admin') }}</button>
+    </p>
+    {{ form_end(form) }}
+
+
+    <div class="btn-group record_actions">
+
+        <a class="btn btn-info" href="{{ path('ofac') }}">
+            <i class="fa fa-list"></i> {{ 'Back to the list'|trans({}, 'admin') }}
+        </a>
+
+
+    </div>
+
+
+{% endblock %}
